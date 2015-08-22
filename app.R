@@ -1,6 +1,18 @@
+####################### WARNING ################################
+
+################################################################
+##   I'm using this new approach with a single file, SO, this ##
+##      file has the equivalent to both: ui.R and server.R    ##
+################################################################
+
+################################################################
+####        SECTION EQUIVALENT TO ui.R                      ####                                              
+################################################################
+
 library(shiny)
 source('functions.R')
 
+## Funtion to create about section
 tabPanelAbout <- source("about.R")$value
 mos <- c("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec")
 headerPanel_2 <- function(title, h, windowTitle=title) {    
@@ -50,6 +62,11 @@ ui <- navbarPage("Financing",
   tabPanel(title = 'About & Instructions', tabPanelAbout())
 )
 
+#################### END OF ui.R ##############################
+
+################################################################
+####        SECTION EQUIVALENT TO server.R                  ####                                              
+################################################################
 
 server <- function(input, output) {
    
@@ -92,3 +109,5 @@ server <- function(input, output) {
 }
 
 shinyApp(ui = ui, server = server)
+
+#################### END OF server.R ##############################
